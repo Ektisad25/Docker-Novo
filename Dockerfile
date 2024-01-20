@@ -1,4 +1,4 @@
-# Create by Antares https://github.com/Antares-RXD/
+# Create by Mehdi https://github.com/Ektisad25/
 # The purpose of this image is to be able to host ElectrumX and novod together.
 # Build with: `docker build -t electrumxNovonode .`
 
@@ -85,7 +85,6 @@ RUN mkdir /root/novodb
 WORKDIR /root
 
 # ORIGINAL SOURCE
-#RUN git clone https://github.com/3untz/novo-electrumx.git
 RUN git clone https://github.com/3untz/novo-electrumx
 
 WORKDIR /root/novo-electrumx
