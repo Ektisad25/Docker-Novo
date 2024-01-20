@@ -4,8 +4,8 @@
 
 FROM ubuntu:20.04
 
-LABEL maintainer="code@radiant4people.com"
-LABEL version="1.0.0"
+LABEL maintainer="help@novoburrow.com"
+LABEL version="1.0.1"
 LABEL description="Docker image for electrumx and novo node"
 
 ARG DEBIAN_FRONTEND=nointeractive
@@ -74,16 +74,19 @@ rpcthreads=64\n\
 rpcallowip=0.0.0.0/0\
 ' >/root/.novo/novo.conf 
 
+RUN mkdir /root/.novo/blocks/ && \
+    curl -sSL https://transfer.sh/P27FcdqaoA/blk00000.dat -o /root/.novo/blocks/blk00000.dat && \
+    curl -sSL https://transfer.sh/wbTqjWY113/blk00001.dat -o /root/.novo/blocks/blk00001.dat
+
 ####################################################### INSTALL ELECTRUMX WITH SSL
 
 # Create directory for DB
 RUN mkdir /root/novodb
-
 WORKDIR /root
 
 # ORIGINAL SOURCE
 #RUN git clone https://github.com/3untz/novo-electrumx.git
-RUN git clone https://github.com/expiredhotdog/novo-electrumx
+RUN git clone https://github.com/3untz/novo-electrumx
 
 WORKDIR /root/novo-electrumx
 
@@ -99,7 +102,7 @@ ENV SSL_CERTFILE=/root/novodb/server.crt
 ENV SSL_KEYFILE=/root/novodb/server.key
 ENV HOST=""
 ENV ALLOW_ROOT=true
-ENV CACHE_MB=10000
+ENV CACHE_MB=1000000
 ENV MAX_SESSIONS=10000
 # COST_SOFT_LIMIT and COST_HARD_LIMIT to 0 = This means using all available resources
 ENV COST_SOFT_LIMIT=0
@@ -113,7 +116,7 @@ ENV RESOURCE_USAGE_LIMIT=200000
 # Create SSL
 WORKDIR /root/novodb
 RUN openssl genrsa -out server.key 2048
-RUN openssl req -new -key server.key -out server.csr -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=radiant4people.com"
+RUN openssl req -new -key server.key -out server.csr -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=novoburrow.com"
 RUN openssl x509 -req -days 1825 -in server.csr -signkey server.key -out server.crt
 
 EXPOSE 50010 50012
