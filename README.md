@@ -1,6 +1,6 @@
 # ElectrumxNovoNode-Docker
 
-First version of a Docker to join electrumx and the Novo node in the same image. Both are running at the same time and they are connected to each other. For now it is not persistent by default and if you stop the container and start it again, you will need to synchronize the whole node and then electrumx, which is about 10-20minutes.
+First version of a Docker to join electrumx and the Novo node in the same image. Both are running at the same time and they are connected to each other. For now it is not persistent by default and if you stop the container and start it again, you will need to synchronize the whole node and then electrumx, which is about 6-10 hours.
 
 ### TO GENERATE IMAGE
 
@@ -8,7 +8,7 @@ First version of a Docker to join electrumx and the Novo node in the same image.
 
 ### TO RUN THE IMAGE WITH A SPECIFIC NAME
 
-```docker -p 50010:50010 -p 50012:50012 run --name my_electrumx electrumx_novo-node```
+```docker run -p 50010:50010 -p 50012:50012 --name my_electrumx electrumx_novo-node```
 
 ### TO STOP THE CONTAINER
 
