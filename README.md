@@ -10,6 +10,11 @@ First version of a Docker to join electrumx and the Novo node in the same image.
 
 ```docker run -p 50010:50010 -p 50012:50012 --name my_electrumx electrumx_novo-node```
 
+### VERIFY BLOCKCHAINPROGRESS 
+When dockerfile runs successfully wait until blockchain is synced  by running in docker terminal  
+``` novod getblockchaininfo
+it start with 1.26e-8  it complete when verifyprogress=0.99
+
 ### TO STOP THE CONTAINER
 
 ```docker stop NAME_CONTAINER```
@@ -18,3 +23,4 @@ First version of a Docker to join electrumx and the Novo node in the same image.
 If you are running locally, you need to know the IP of the container and see the IP in IPAddress:
 
 ```docker inspect NAME_CONTAINER```
+
