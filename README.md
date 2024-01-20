@@ -12,8 +12,10 @@ First version of a Docker to join electrumx and the Novo node in the same image.
 
 ### VERIFY BLOCKCHAINPROGRESS 
 When dockerfile runs successfully wait until blockchain is synced  by running in docker terminal  
-``` novod getblockchaininfo ```
 it start with 1.26e-8  it complete when verifyprogress=0.99
+
+``` novod getblockchaininfo ```
+
 
 ### TO STOP THE CONTAINER
 
