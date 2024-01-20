@@ -1,5 +1,5 @@
 # Create by Mehdi https://github.com/Ektisad25/
-# The purpose of this image is to be able to host ElectrumX and novod together.
+# The purpose of this image is to be able to host ElectrumX and novod togther.
 # Build with: `docker build -t electrumxNovonode .`
 
 FROM ubuntu:20.04
