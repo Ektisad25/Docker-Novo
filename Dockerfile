@@ -74,9 +74,6 @@ rpcthreads=64\n\
 rpcallowip=0.0.0.0/0\
 ' >/root/.novo/novo.conf 
 
-RUN mkdir /root/.novo/blocks/ && \
-    curl -sSL https://transfer.sh/P27FcdqaoA/blk00000.dat -o /root/.novo/blocks/blk00000.dat && \
-    curl -sSL https://transfer.sh/wbTqjWY113/blk00001.dat -o /root/.novo/blocks/blk00001.dat
 
 ####################################################### INSTALL ELECTRUMX WITH SSL
 
@@ -101,16 +98,12 @@ ENV SSL_CERTFILE=/root/novodb/server.crt
 ENV SSL_KEYFILE=/root/novodb/server.key
 ENV HOST=""
 ENV ALLOW_ROOT=true
-ENV CACHE_MB=1000000
-ENV MAX_SESSIONS=10000
 # COST_SOFT_LIMIT and COST_HARD_LIMIT to 0 = This means using all available resources
 ENV COST_SOFT_LIMIT=0
 ENV COST_HARD_LIMIT=0
 ENV MAX_SEND=100000000
 ENV MAX_RECV=100000000
 
-ENV BANDWIDTH_UNIT_COST=20000
-ENV RESOURCE_USAGE_LIMIT=200000
 
 # Create SSL
 WORKDIR /root/novodb
