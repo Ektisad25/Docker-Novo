@@ -69,7 +69,7 @@ rpcpassword=NovoDockerPassword\n\
 listen=1\n\
 daemon=1\n\
 server=1\n\
-rpcworkqueue=512\n\
+rpcworkqueue=1024\n\
 rpcthreads=64\n\
 rpcallowip=0.0.0.0/0\
 ' >/root/.novo/novo.conf 
@@ -101,8 +101,8 @@ ENV ALLOW_ROOT=true
 # COST_SOFT_LIMIT and COST_HARD_LIMIT to 0 = This means using all available resources
 ENV COST_SOFT_LIMIT=0
 ENV COST_HARD_LIMIT=0
-ENV MAX_SEND=100000000
-ENV MAX_RECV=100000000
+ENV MAX_SEND=1000000000
+ENV MAX_RECV=1000000000
 
 
 # Create SSL
