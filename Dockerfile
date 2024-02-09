@@ -69,7 +69,6 @@ rpcpassword=NovoDockerPassword\n\
 listen=1\n\
 daemon=1\n\
 server=1\n\
-rpcworkqueue=1024\n\
 rpcthreads=64\n\
 rpcallowip=0.0.0.0/0\
 ' >/root/.novo/novo.conf 
