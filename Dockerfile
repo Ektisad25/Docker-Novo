@@ -81,8 +81,8 @@ RUN mkdir /root/novodb
 WORKDIR /root
 
 # ORIGINAL SOURCE
-RUN git clone https://github.com/Ektisad25/electrumx-novo.git
-WORKDIR /root/electrumx-novo
+RUN git clone https://github.com/Ektisad25/novo-electrumx.git
+WORKDIR /root/novo-electrumx
 
 RUN python3 -m pip install -r requirements.txt
 
@@ -111,4 +111,4 @@ RUN openssl x509 -req -days 1825 -in server.csr -signkey server.key -out server.
 
 EXPOSE 50010 50012
 
-ENTRYPOINT ["/bin/sh", "-c" , "novod && python3 /root/electrumx-novo/electrumx_server"]
+ENTRYPOINT ["/bin/sh", "-c" , "novod && python3 /root/novo-electrumx/electrumx_server"]
