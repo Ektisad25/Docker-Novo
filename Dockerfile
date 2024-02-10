@@ -82,7 +82,7 @@ WORKDIR /root
 
 # ORIGINAL SOURCE
 RUN git clone https://github.com/Ektisad25/electrumx-novo.git
-WORKDIR /root/novo-electrumx
+WORKDIR /root/electrumx-novo
 
 RUN python3 -m pip install -r requirements.txt
 
