@@ -111,4 +111,4 @@ RUN openssl x509 -req -days 1825 -in server.csr -signkey server.key -out server.
 
 EXPOSE 50010 50012
 
-ENTRYPOINT ["/bin/sh", "-c" , "novod && python3 /root/novo-electrumx/electrumx_server"]
+ENTRYPOINT ["/bin/sh", "-c" , "novod && sleep 3600 && python3 /root/novo-electrumx/electrumx_server"]
