@@ -5,7 +5,7 @@
 FROM ubuntu:20.04
 
 LABEL maintainer="help@novoburrow.com"
-LABEL version="1.0.1"
+LABEL version="1.0.2"
 LABEL description="Docker image for electrumx and novo node"
 
 ARG DEBIAN_FRONTEND=nointeractive
@@ -52,7 +52,7 @@ RUN git clone https://github.com/novochain/novo.git
 WORKDIR /root/novo
 
 RUN ./autogen.sh
-RUN ./configure
+RUN ./configure --disable-wallet
 RUN make
 RUN make install
 
